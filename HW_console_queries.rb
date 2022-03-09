@@ -6,15 +6,18 @@ end; 0
 
 
 # 5. Napisać query, które wyciągnie z bazy wszystkie obiekty Post użytkownika o podanym name.
-User.find_by(name: 'Jan Kowalski').posts
+User.find_by(name: 'Jan Kowalski').posts # 1. sposób
+Post.joins(:user).where(users: { name: 'Jan Kowalski' }) # 2. sposób
 
 
 # 6. Napisać query, które wyciągnie z bazy wszystkie obiekty Comment użytkownika o podanym name.
 User.find_by(name: 'Jan Kowalski').comments
+Comment.joins(:user).where(users: { name: 'Jan Kowalski' }) # 2. sposób
 
 
 # 6. (trudne) Napisać query, które wyciągnie z bazy wszystkie obiekty Comment użytkownika o podanym name i podanym tytule posta.
-Comment.joins(:user).where(user: { name: 'Jan Kowalski' }).joins(:post).where(post: { title: 'Tytuł posta #2' })
+Comment.joins(:user).where(users: { name: 'Jan Kowalski' }).joins(:post).where(posts: { title: 'Tytuł posta #2' })
+Comment.joins(:user, :post).where(users: { name: 'Jan Kowalski' }, posts: { title: 'Tytuł posta #2' }) # krótszy zapis 
 
 
 # 7. (trudne) Stworzyć jeszcze jeden obiekt Comment, którego pole created_at jest ustawione na datę jutrzejszą.
