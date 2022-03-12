@@ -39,7 +39,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Post ##{@post.id} has been deleted."
       redirect_to posts_path
     else
-      flash[:alert] = 'Something went wrong when deleting post.'
+      flash[:alert] = 'Something went wrong while deleting post.'
       redirect_to posts_path
     end
   end

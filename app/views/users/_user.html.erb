@@ -1,4 +1,5 @@
 <%= form_with model: @user do |form| %>
+  <%= form.label :name, 'User name:' %>
   <%= form.text_field :name %>
   <%= form.submit %>
 <% end %>
