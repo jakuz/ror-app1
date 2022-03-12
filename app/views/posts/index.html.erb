@@ -1,6 +1,21 @@
-<h1>Posts#index</h1>
+<%= link_to 'Add new post', new_post_path %>
 
-<p> <%= @var1 %> </p>
-<p> <%= @posts.inspect %> </p>
-
+<table>
+  <tr>
+    <th>Post ID</th>
+    <th>Post title</th>
+    <th>Author</th>
+    <th>Edit post</th>
+    <th>Delete post</th>
+  </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= link_to post.title, post_path(post) %></td>
+      <td><%= post.user.name %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= button_to 'Delete', post_path(post), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
 

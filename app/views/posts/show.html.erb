@@ -1,3 +1,6 @@
-<h1>Posts#show</h1>
 
-<p> <%= @post %> </p>
+<p> 
+  Title: <%= @post.title %> <br>
+  Author: <%= @post.user.name %> 
+</p>
+<p> <%= @post.body %> </p>
