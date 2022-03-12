@@ -1,2 +1,4 @@
-<h1>Comments#show</h1>
-<p>Find me in app/views/comments/show.html.erb</p>
+<p>Comment author: <%= @comment.user.name %></p>
+<p>Comment: <%= @comment.content %></p>
+<p>Title of commented post: <%= @comment.post.title %></p>
+<p>Post: <%= @comment.post.body %></p>

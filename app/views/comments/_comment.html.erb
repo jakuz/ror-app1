@@ -1,0 +1,9 @@
+<%= form_with model: @comment do |form| %>
+  <%= form.label :post_id, 'Commented post (title)'  %>
+  <%= form.collection_select :post_id, Post.order(:title), :id, :title %><br>
+  <%= form.label :user_id, 'Comment author'  %>
+  <%= form.collection_select :user_id, User.order(:name), :id, :name %><br>
+  <%= form.label :content, 'Comment' %>
+  <%= form.text_field :content %><br>
+  <%= form.submit %>
+<% end %>
