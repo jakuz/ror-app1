@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User '#{@user.name}' has been destroyed."
       redirect_to users_path
     else
-      flash[:alert] = 'Something wen wrong when deleting user.'
+      flash[:alert] = 'Something went wrong when deleting user.'
       redirect_to users_path
     end
   end

@@ -1,0 +1,9 @@
+<%= form_with model: @post do |form| %>
+  <%= form.label :title, 'Title:' %>
+  <%= form.text_field :title %> <br>
+  <%= form.label :user_id, 'Author:'%>
+  <%= form.collection_select :user_id, User.order(:name), :id, :name %><br>
+  <%= form.label :body, 'Body:' %>
+  <%= form.text_field :body %> <br>
+  <%= form.submit %>
+<% end %>

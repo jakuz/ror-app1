@@ -6,15 +6,15 @@
   <tr>
     <th>User ID</th>
     <th>User Name</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th>Edit user</th>
+    <th>Delete user</th>
   </tr>
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
       <td><%= link_to user.name, user_path(user) %></td>
-      <td><%= link_to 'Edit user', edit_user_path(user) %></td>
-      <td><%= button_to 'Delete user', user_path(user), method: :delete, data: { confirm: "Are you sure?" } %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= button_to 'Delete', user_path(user), method: :delete, data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
 </table>
