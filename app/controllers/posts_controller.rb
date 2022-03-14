@@ -1,11 +1,10 @@
 class PostsController < ApplicationController
   def create
-    @post = Post.new(post_params)
-    if @post.save
-      redirect_to posts_path
-    else
-      render :new
-    end
+    Posts::Create.new(post_params).call
+    redirect_to posts_path
+  rescue ActiveRecord::RecordInvalid => invalid
+    @post = invalid.record
+    render :new
   end
 
   def new
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Posts::Sort.new(Posts::Recent.call).call
   end
 
   def update
