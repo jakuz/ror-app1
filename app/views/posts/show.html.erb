@@ -1,6 +1,7 @@
+<% presenter = PostPresenter.new(@post) %>
 
 <p> 
-  Title: <%= @post.title %> <br>
-  Author: <%= @post.user.name %> 
+  Title: <%= presenter.parsed_title %> <br>
+  Author: <%= presenter.user.name %> 
 </p>
-<p> <%= @post.body %> </p>
+<p> Body: <%= presenter.body %> </p>
